@@ -1,0 +1,54 @@
+REGLAS:
+
+def sistema_recomendacion(edad, genero):
+    if edad < 18:
+        return "Recomendación: Películas para adolescentes"
+    elif edad >= 18 and genero == "Aventura":
+        return "Recomendación: Películas de aventuras para adultos"
+    elif edad >= 18 and genero == "Comedia":
+        return "Recomendación: Películas cómicas para adultos"
+    else:
+        return "Recomendación: Otra categoría"
+
+# Ejemplo de uso
+resultado = sistema_recomendacion(25, "Aventura")
+print(resultado)
+
+
+REDES SEMANTICAS:
+
+red_semantica = {
+    "perro": {"es_mamifero": True, "ladra": True},
+    "gato": {"es_mamifero": True, "ladra": False},
+    "loro": {"es_mamifero": False, "ladra": False, "puede_hablar": True}
+}
+
+# Consulta en la red semántica
+animal = "loro"
+print(f"El {animal} es mamífero? {red_semantica[animal]['es_mamifero']}")
+print(f"El {animal} ladra? {red_semantica[animal]['ladra']}")
+print(f"El {animal} puede hablar? {red_semantica[animal]['puede_hablar']}")
+
+
+LOGICA DESCRIPTIVA:
+
+from owlready2 import *
+
+# Crear una ontología simple
+onto = Ontology("http://ejemplo.org/ontologia#")
+
+class Hombre(Thing):
+    pass
+
+class Mortal(Hombre):
+    equivalent_to = [Hombre & restriction("existe_en", has_value = True)]
+
+# Guardar la ontología
+onto.save()
+
+# Consulta en la ontología
+with onto:
+    sync_reasoner()
+
+juan = Hombre("Juan")
+print(f"¿Juan es mortal? {juan.is_a[0] == Mortal}")
