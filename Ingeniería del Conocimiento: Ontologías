@@ -1,0 +1,25 @@
+from rdflib import Graph, Namespace, Literal
+
+# Crear un grafo RDF
+g = Graph()
+
+# Definir un espacio de nombres para nuestra ontología
+onto = Namespace("http://ejemplo.com/ontologia#")
+
+# Agregar instancias y propiedades a la ontología
+g.add((onto.Juan, onto.edad, Literal(25)))
+g.add((onto.Maria, onto.edad, Literal(30)))
+g.add((onto.Juan, onto.trabajaEn, onto.EmpresaA))
+g.add((onto.Maria, onto.trabajaEn, onto.EmpresaB))
+
+# Consultar información de la ontología
+for subj, pred, obj in g:
+    print(f"{subj} {pred} {obj}")
+
+# Consultar la edad de Juan
+juan_edad = g.value(onto.Juan, onto.edad, None)
+print(f"La edad de Juan es: {juan_edad}")
+
+# Consultar la empresa donde trabaja María
+maria_empresa = g.value(onto.Maria, onto.trabajaEn, None)
+print(f"María trabaja en: {maria_empresa}")
