@@ -1,0 +1,23 @@
+class SistemaExpertoClima:
+    def __init__(self):
+        self.clima_actual = None
+
+    def obtener_clima_actual(self):
+        # En un sistema real, esta función podría obtener datos del clima de una API o de otro origen.
+        # Por simplicidad, el usuario proporcionará el clima manualmente en este ejemplo.
+        self.clima_actual = input("Ingresa el clima actual (soleado, nublado, lluvioso): ")
+
+    def recomendar_actividad(self):
+        if self.clima_actual.lower() == "soleado":
+            print("¡Es un día soleado! Puedes ir a la playa o dar un paseo en el parque.")
+        elif self.clima_actual.lower() == "nublado":
+            print("Está nublado. Tal vez quieras ver una película en casa.")
+        elif self.clima_actual.lower() == "lluvioso":
+            print("Está lloviendo. Es un buen momento para quedarse en casa y leer un libro.")
+        else:
+            print("No reconozco ese tipo de clima. ¡Ingresa una opción válida!")
+
+# Uso del sistema experto
+sistema_experto = SistemaExpertoClima()
+sistema_experto.obtener_clima_actual()
+sistema_experto.recomendar_actividad()
