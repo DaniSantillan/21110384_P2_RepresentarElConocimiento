@@ -1,0 +1,19 @@
+import random
+
+def modelo_probabilista_racional():
+    # Simulamos tirar un dado
+    resultado_dado = random.randint(1, 6)
+    
+    # Calculamos la probabilidad de obtener cada número
+    probabilidades = [1/6] * 6  # Dado justo, cada número tiene 1/6 de probabilidad
+    
+    # Tomamos la decisión basada en las probabilidades
+    decision = random.choices(range(1, 7), weights=probabilidades)[0]
+    
+    # Devolvemos el resultado del dado y la decisión tomada
+    return resultado_dado, decision
+
+# Ejemplo de uso
+resultado_dado, decision = modelo_probabilista_racional()
+print(f"Resultado del dado: {resultado_dado}")
+print(f"Decisión tomada: {decision}")
