@@ -1,0 +1,28 @@
+# Definiendo la clase para Marcos
+class Marcos:
+    def __init__(self, nombre):
+        self.nombre = nombre
+        self.estado_emocional = "feliz"
+
+    def realizar_accion(self, accion):
+        print(f"{self.nombre} está {accion}.")
+
+    def cambiar_estado_emocional(self, nuevo_estado):
+        print(f"{self.nombre} se siente {nuevo_estado}.")
+        self.estado_emocional = nuevo_estado
+
+# Creando una instancia de Marcos
+marcos = Marcos("Marcos")
+
+# Acciones
+marcos.realizar_accion("programando")
+marcos.realizar_accion("aprendiendo Python")
+
+# Situación
+marcos.cambiar_estado_emocional("entusiasmado")
+
+# Evento
+print(f"{marcos.nombre} está participando en una conferencia de tecnología.")
+
+# Resultado final
+print(f"En este escenario, {marcos.nombre} está {marcos.estado_emocional}.")
