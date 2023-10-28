@@ -1,0 +1,40 @@
+class MotorRazonamiento:
+    def __init__(self):
+        self.hechos = set()
+        self.reglas = [
+            {'antecedente': {'pajaro_vuela'}, 'consecuente': {'puede_ser_pajaro'}},
+            {'antecedente': {'pajaro_no_vuela'}, 'consecuente': {'no_es_pajaro'}}
+        ]
+
+    def agregar_hecho(self, hecho):
+        self.hechos.add(hecho)
+        self.evaluar_reglas()
+
+    def evaluar_reglas(self):
+        nuevos_hechos = set()
+
+        for regla in self.reglas:
+            antecedente_verificado = all(antecedente in self.hechos for antecedente in regla['antecedente'])
+
+            if antecedente_verificado:
+                nuevos_hechos.update(regla['consecuente'])
+
+        self.hechos.update(nuevos_hechos)
+
+    def obtener_hechos(self):
+        return self.hechos
+
+# Uso del motor de razonamiento
+motor = MotorRazonamiento()
+
+# Se asume inicialmente que un pájaro vuela
+motor.agregar_hecho('pajaro_vuela')
+
+# Mostrar hechos actuales
+print("Hechos actuales:", motor.obtener_hechos())
+
+# Llega nueva información de que un pájaro no vuela
+motor.agregar_hecho('pajaro_no_vuela')
+
+# Mostrar hechos actualizados después de la revisión
+print("Hechos actualizados:", motor.obtener_hechos())
