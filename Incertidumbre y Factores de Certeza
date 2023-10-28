@@ -1,0 +1,16 @@
+import random
+
+def lanzar_dado():
+    # Simulamos la incertidumbre del lanzamiento
+    resultado = random.randint(1, 6)
+    return resultado
+
+# Lanzamos el dado varias veces para observar los resultados
+lanzamientos = 10
+resultados = []
+
+for _ in range(lanzamientos):
+    resultado = lanzar_dado()
+    resultados.append(resultado)
+
+print(f"Resultados de {lanzamientos} lanzamientos: {resultados}")
