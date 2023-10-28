@@ -1,0 +1,37 @@
+class Categoria:
+    def __init__(self, nombre):
+        self.nombre = nombre
+        self.objetos = []
+
+    def agregar_objeto(self, objeto):
+        self.objetos.append(objeto)
+
+
+class Objeto:
+    def __init__(self, nombre):
+        self.nombre = nombre
+
+# Crear categorías
+animales = Categoria("Animales")
+frutas = Categoria("Frutas")
+
+# Crear objetos
+perro = Objeto("Perro")
+gato = Objeto("Gato")
+manzana = Objeto("Manzana")
+banana = Objeto("Banana")
+
+# Agregar objetos a categorías
+animales.agregar_objeto(perro)
+animales.agregar_objeto(gato)
+frutas.agregar_objeto(manzana)
+frutas.agregar_objeto(banana)
+
+# Mostrar la estructura de la taxonomía
+print(f"Categoría: {animales.nombre}")
+for animal in animales.objetos:
+    print(f"  - Objeto: {animal.nombre}")
+
+print(f"Categoría: {frutas.nombre}")
+for fruta in frutas.objetos:
+    print(f"  - Objeto: {fruta.nombre}")
